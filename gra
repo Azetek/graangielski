@@ -22,7 +22,7 @@ prawodpowiedzi["5"] = "BEGAN"
 TextWindow.Title = "II forma czasowników"
 TextWindow.ForegroundColor = "Green"
 TextWindow.WriteLine("Zasady oraz instrukcja gry!")
-TextWindow.WriteLine("Jest aktualnie 5 pytań. Masz 250 piniędzy. Możesz poprosić o podpowiedź,        wpisując"+ ",,Podpowiedź''"  + "lecz będzie cie to kosztowało 300 waluty!")
+TextWindow.WriteLine("Jest aktualnie 5 pytań. Masz 250 kredytów. Możesz poprosić o podpowiedź,        wpisując"+ ",,Podpowiedź''"  + "lecz będzie cie to kosztowało 300 waluty!")
 TextWindow.WriteLine("Naciśnij dowolny przycisk, by wejść do gry!")
 TextWindow.PauseWithoutMessage()
 Goto pytac
