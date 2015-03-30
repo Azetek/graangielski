@@ -1,0 +1,77 @@
+money = 2500
+pytanie["1"] = "Podaj II formę czasownika do!"
+mozodpowiedzi["1"] = "Did, Doed, Dod, Doied, Does?"
+prawodpowiedzi["1"] = "DID"
+
+pytanie["2"] = "Podaj II formę czasownika fly!"
+mozodpowiedzi["2"] = "Flyed, Flying, Flew, Flied?"
+prawodpowiedzi["2"] = "FLEW"
+
+pytanie["3"] = "Podaj II formę czasownika beat!"
+mozodpowiedzi["3"] = "Beat, Beated, Beatied, Beatd?"
+prawodpowiedzi["3"] = "BEAT"
+
+pytanie["4"] = "Podaj II formę czasownika be!"
+mozodpowiedzi["4"] = "Bied/Biere, Byed/Biure, Bed/Bedre, Was/Were, Wased/Wasere, Wasied/Waisere?"
+prawodpowiedzi["4"] = "WAS/WERE"
+
+pytanie["5"] = "Podaj II formę czasownika begin!"
+mozodpowiedzi["5"] = "Begined, Began, Biegan, Beginied?"
+prawodpowiedzi["5"] = "BEGAN"
+
+TextWindow.Title = "II forma czasowników"
+TextWindow.ForegroundColor = "Green"
+TextWindow.WriteLine("Zasady oraz instrukcja gry!")
+TextWindow.WriteLine("Jest aktualnie 5 pytań. Masz 250 piniędzy. Możesz poprosić o podpowiedź,        wpisując"+ ",,Podpowiedź''"  + "lecz będzie cie to kosztowało 300 waluty!")
+TextWindow.WriteLine("Naciśnij dowolny przycisk, by wejść do gry!")
+TextWindow.PauseWithoutMessage()
+Goto pytac
+
+pytac:
+pod="PODPOWIEDŹ"
+TextWindow.Clear()
+i = Math.GetRandomNumber(5)
+abc:
+TextWindow.WriteLine(pytanie[i])
+odpowiedz = Text.ConvertToUpperCase(TextWindow.Read())
+TextWindow.Clear()
+If odpowiedz=prawodpowiedzi[i] Then
+  TextWindow.WriteLine("Gratulacje!")
+  money = money + 250
+ TextWindow.WriteLine(money)
+ElseIf odpowiedz=pod Then
+  If money > 300 Then
+      money = money - 300 
+      If  money = 0 Then
+      TextWindow.WriteLine("BANKRUT!!!")
+      Goto koniec
+      Else
+       TextWindow.WriteLine(mozodpowiedzi[i])
+     TextWindow.WriteLine(money)
+     Goto abc
+      EndIf
+  ElseIf money<300 Then
+    TextWindow.WriteLine("Nie stać cię!")
+    Goto abc    
+  EndIf 
+Else
+  TextWindow.WriteLine("Zła odpowiedź!")
+  money = money - 200
+  If money <= 0 Then
+    TextWindow.WriteLine("BANKRUT!!!")
+    TextWindow.WriteLine("Naciśnij dowolny przycisk...")
+    TextWindow.PauseWithoutMessage()
+     Goto koniec
+  EndIf
+  TextWindow.WriteLine(money)
+EndIf
+TextWindow.WriteLine("Naciśnij przycisk, by przejść dalej!")
+TextWindow.PauseWithoutMessage()
+Goto pytac
+
+koniec:
+TextWindow.Clear()
+TextWindow.WriteLine("Zbankrutowałeś!")
+TextWindow.WriteLine("Nie przejmuj się, nie są to prawdziwe pieniądze...Poćwicz nieregularne II formy czasowników i ponownie przystąp do gry :)")
+TextWindow.WriteLine("Naciśnij dowolny przycisk, aby wyjść z gry!")
+TextWindow.PauseWithoutMessage()
