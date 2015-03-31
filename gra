@@ -1,4 +1,4 @@
-money = 2500
+money = 250
 pytanie["1"] = "Podaj II formę czasownika do!"
 mozodpowiedzi["1"] = "Did, Doed, Dod, Doied, Does?"
 prawodpowiedzi["1"] = "DID"
